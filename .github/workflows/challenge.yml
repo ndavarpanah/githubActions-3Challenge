@@ -10,10 +10,11 @@ jobs:
             - name: checkout
               uses: actions/checkout@v4
 
-            - name: create file to save as artificate 
-               run: touch test.out
+            - name: create file to save as artificate
+              run: touch test.out
 
             - name: Upload Artifact
               uses: actions/upload-artifact@v4.0.0
-              name: file
-              path: test.out
+              with:
+                name: file
+                path: test.out
