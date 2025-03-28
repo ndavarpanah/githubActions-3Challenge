@@ -2,6 +2,9 @@ name: 03 challenge
 
 on: [push]
 
+env:
+    ARTIFICATE_NAME: myartificate
+
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -13,8 +16,16 @@ jobs:
             - name: create file to save as artificate
               run: touch test.out
 
-            - name: Upload Artifact
+            - name: Upload File
               uses: actions/upload-artifact@v4.0.0
               with:
                 name: file
                 path: test.out
+
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v4.0.0
+              with:
+                name: ${env.ARTIFICATE_NAME}
+                path: .
+
+            
